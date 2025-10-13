@@ -256,7 +256,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg text-center font-semibold"
                   >
-                    ✓ Message sent successfully! I'll get back to you soon.
+                    ✓ Message sent successfully! I&apos;ll get back to you soon.
                   </motion.div>
                 )}
 
