@@ -15,9 +15,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
-  /* Enable class-based dark mode */
-  @custom-variant dark (&:where(.dark, .dark *));
 }
 
 @media (prefers-color-scheme: dark) {
