@@ -1,6 +1,17 @@
 # Eby Mathew - Portfolio Website
 
-A modern, professional, and visually stunning personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS.
+A modern, professional, and visually stunning personal portfolio website built with Next.js 15, TypeScript, and Tailwind CSS v4.
+
+## 📖 Complete Documentation
+
+**👉 For detailed instructions, see [PORTFOLIO_GUIDE.md](./PORTFOLIO_GUIDE.md)**
+
+The comprehensive guide includes:
+- Quick start commands
+- How to edit content
+- Deployment instructions
+- Troubleshooting tips
+- Complete tech stack overview
 
 ## Features
 
