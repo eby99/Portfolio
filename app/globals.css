@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --color-*: initial;
+  --font-*: initial;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +15,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Enable class-based dark mode */
+  @custom-variant dark (&:where(.dark, .dark *));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,21 +81,54 @@ html {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-/* Dark mode utilities */
+/* Dark mode utilities - Comprehensive Coverage */
 .dark .bg-white {
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #111111 !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #1f1f1f !important;
 }
 
 .dark .text-gray-900 {
-  color: #ededed;
+  color: #ededed !important;
+}
+
+.dark .text-gray-800 {
+  color: #e5e5e5 !important;
+}
+
+.dark .text-gray-700 {
+  color: #d4d4d4 !important;
 }
 
 .dark .text-gray-600 {
-  color: #a1a1a1;
+  color: #a1a1a1 !important;
+}
+
+.dark .text-gray-500 {
+  color: #737373 !important;
 }
 
 .dark .border-gray-200 {
-  border-color: #333;
+  border-color: #333 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #404040 !important;
+}
+
+/* Ensure buttons and interactive elements are visible in dark mode */
+.dark button {
+  color: inherit;
+}
+
+.dark a {
+  color: inherit;
 }
 
 /* Animations */
