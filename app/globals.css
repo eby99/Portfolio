@@ -78,54 +78,41 @@ html {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-/* Dark mode utilities - Comprehensive Coverage */
-.dark .bg-white {
-  background-color: #1a1a1a !important;
+/* Dark mode utilities - Selective overrides that preserve gradients */
+/* Only override plain backgrounds, NOT gradient backgrounds */
+.dark section:not([class*="gradient"]):not([class*="from-"]):not([class*="to-"]).bg-white,
+.dark section:not([class*="gradient"]):not([class*="from-"]):not([class*="to-"]).bg-gray-50 {
+  background-color: #111827;
 }
 
-.dark .bg-gray-50 {
-  background-color: #111111 !important;
+/* Text color adjustments for dark mode - preserve gradient text */
+.dark .text-gray-900:not(.gradient-text):not(.gradient-animate) {
+  color: #f3f4f6;
 }
 
-.dark .bg-gray-100 {
-  background-color: #1f1f1f !important;
+.dark .text-gray-800:not(.gradient-text):not(.gradient-animate) {
+  color: #e5e7eb;
 }
 
-.dark .text-gray-900 {
-  color: #ededed !important;
+.dark .text-gray-700:not(.gradient-text):not(.gradient-animate) {
+  color: #d1d5db;
 }
 
-.dark .text-gray-800 {
-  color: #e5e5e5 !important;
+.dark .text-gray-600:not(.gradient-text):not(.gradient-animate) {
+  color: #9ca3af;
 }
 
-.dark .text-gray-700 {
-  color: #d4d4d4 !important;
+.dark .text-gray-500:not(.gradient-text):not(.gradient-animate) {
+  color: #6b7280;
 }
 
-.dark .text-gray-600 {
-  color: #a1a1a1 !important;
-}
-
-.dark .text-gray-500 {
-  color: #737373 !important;
-}
-
+/* Border colors for dark mode */
 .dark .border-gray-200 {
-  border-color: #333 !important;
+  border-color: #374151;
 }
 
 .dark .border-gray-300 {
-  border-color: #404040 !important;
-}
-
-/* Ensure buttons and interactive elements are visible in dark mode */
-.dark button {
-  color: inherit;
-}
-
-.dark a {
-  color: inherit;
+  border-color: #4b5563;
 }
 
 /* Animations */
