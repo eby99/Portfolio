@@ -6,7 +6,8 @@ export const personalInfo = {
   location: "Kerala, India",
   github: "https://github.com/eby99",
   linkedin: "https://www.linkedin.com/in/eby-mathew-838a02313",
-  bio: "A highly motivated and detail-oriented Full Stack Developer with a strong foundation in software development and hands-on experience building scalable web and mobile applications. Proficient in the MERN stack, Python, Java, PHP, and modern web technologies with expertise in both frontend and backend development.",
+  bio: "A highly motivated and detail-oriented Full Stack Developer with a strong foundation in software development and hands-on experience building scalable web and mobile applications. Proficient in the MERN stack, Python, Java, PHP, Flutter, ASP.NET, and modern web technologies with expertise in both frontend and backend development. Passionate about leveraging AI/ML technologies to create intelligent solutions and cross-platform mobile applications that deliver exceptional user experiences.",
+  aboutBio: "I am a passionate Full Stack Developer dedicated to crafting innovative digital solutions that make a difference. With a solid academic foundation in Computer Applications and extensive hands-on experience, I specialize in building end-to-end applications from concept to deployment. My journey in software development has equipped me with the ability to seamlessly navigate between frontend elegance and backend robustness, while maintaining a keen focus on code quality, scalability, and user experience. I thrive in collaborative environments and am constantly exploring emerging technologies to stay at the forefront of the ever-evolving tech landscape.",
 };
 
 export const education = [
@@ -37,14 +38,18 @@ export const education = [
 ];
 
 export const skills = {
-  "Programming Languages": ["C", "C++", "Java", "Python", "Shell Scripting"],
-  "Database Management": ["SQL", "MySQL", "MongoDB", "SQL Server", "Firebase"],
-  "Web Technologies": ["React.js", "Node.js", "Express.js", "Next.js", "PHP Laravel", "Python Django", "ASP.NET", ".NET Core"],
-  "Mobile Development": ["Flutter", "Android Studio"],
-  "DevOps & Tools": ["Git", "GitHub", "Docker", "CI/CD", "Postman"],
+  "Programming Languages": ["JavaScript", "TypeScript", "Python", "Java", "C", "C++", "Dart", "Shell Scripting"],
+  "Frontend Development": ["React.js", "Next.js", "Tailwind CSS", "Framer Motion", "HTML5", "CSS3"],
+  "Backend Development": ["Node.js", "Express.js", "Python Django", "PHP Laravel", "ASP.NET", ".NET Core"],
+  "Mobile Development": ["Flutter", "Android Studio", "Cross-platform Development"],
+  "Database Management": ["MongoDB", "MySQL", "SQL Server", "Firebase Firestore", "SQL"],
+  "AI/ML Technologies": ["TensorFlow", "PyTorch", "Machine Learning", "Deep Learning", "CNN", "RNN"],
+  "DevOps & Tools": ["Git", "GitHub", "Docker", "CI/CD", "Postman", "Vercel"],
   "Testing & Automation": ["Selenium", "Automated Testing", "Test Scripting"],
-  "Cloud Services": ["AWS (basics)", "Render", "Streamlit"],
-  "Other": ["MS Office", "Automation", "System Monitoring"],
+  "Cloud & Deployment": ["AWS", "Firebase", "Render", "Streamlit", "Vercel Hosting"],
+  "3D & Animation": ["Three.js", "@react-three/fiber", "@react-three/drei", "Framer Motion Animations"],
+  "UI/UX & Design": ["Responsive Design", "Progressive Web Apps", "Material Design", "Gradient Effects", "Dark Mode", "Accessibility"],
+  "Other Tools": ["Nodemailer", "Lucide Icons", "Context API", "REST APIs", "MS Office"],
 };
 
 export const certifications = [

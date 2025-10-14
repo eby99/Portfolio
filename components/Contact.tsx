@@ -78,7 +78,7 @@ export default function Contact() {
                 Contact Information
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
                 {/* Email */}
                 <motion.div
                   whileHover={{ x: 10 }}
@@ -170,7 +170,7 @@ export default function Contact() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
                 <div>
                   <label
                     htmlFor="name"

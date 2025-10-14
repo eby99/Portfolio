@@ -68,7 +68,7 @@ export default function Projects() {
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="relative bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-xl shadow-xl card-hover border-2 border-purple-200 dark:border-purple-700"
+                  className="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl card-hover border border-gray-200 dark:border-gray-700"
                 >
                   {/* Featured Badge */}
                   <div className="absolute -top-4 left-8 px-4 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center gap-2 shadow-lg">
@@ -86,7 +86,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-white dark:bg-gray-800 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors"
+                        className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors"
                       >
                         <Github className="w-6 h-6 text-gray-800 dark:text-white" />
                       </a>
@@ -110,7 +110,7 @@ export default function Projects() {
                     {project.tech.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-white dark:bg-gray-800 text-purple-700 dark:text-purple-300 text-sm font-medium rounded-lg border border-purple-200 dark:border-purple-700"
+                        className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 text-sm font-medium rounded-lg border border-gray-200 dark:border-gray-600"
                       >
                         {tech}
                       </span>

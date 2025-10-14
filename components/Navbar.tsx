@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
@@ -17,23 +18,9 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     setMounted(true);
-
-    // Get initial theme
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-
-    // Apply initial theme to HTML
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -42,16 +29,25 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-
-    // Update HTML class
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+  // Add smooth scrolling functionality
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    console.log('Navbar link clicked:', href);
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      console.log('Found target element:', targetElement);
+      // Close mobile menu if open
+      setIsMobileMenuOpen(false);
+      
+      // Scroll to target element with smooth behavior
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     } else {
-      document.documentElement.classList.remove('dark');
+      console.log('Target element not found for ID:', targetId);
     }
   };
 
@@ -65,7 +61,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
+          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -77,6 +73,7 @@ export default function Navbar() {
             className="text-2xl font-bold gradient-text"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={(e) => handleNavClick(e, '#home')}
           >
             Eby Mathew
           </motion.a>
@@ -87,78 +84,93 @@ export default function Navbar() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                whileHover={{ scale: 1.1 }}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {item.name}
               </motion.a>
             ))}
-
-            {/* Theme Toggle */}
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
-              ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
-              )}
-            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center">
             <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
               whileTap={{ scale: 0.95 }}
+              aria-label="Open menu"
             >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
-              ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
-              )}
-            </motion.button>
-
-            <motion.button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-gray-700 dark:text-gray-300"
-              whileTap={{ scale: 0.95 }}
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <Menu className="w-6 h-6" />
             </motion.button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
-          >
-            <div className="px-4 py-4 space-y-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu Side Drawer - Rendered via Portal */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="fixed inset-0 bg-black/50 md:hidden"
+                style={{ zIndex: 9998 }}
+              />
+
+              {/* Drawer */}
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                className="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-2xl md:hidden overflow-y-auto"
+                style={{ zIndex: 9999 }}
+              >
+                <div className="p-6">
+                  {/* Close Button */}
+                  <div className="flex justify-end mb-8">
+                    <motion.button
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="p-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                      whileTap={{ scale: 0.95 }}
+                      aria-label="Close menu"
+                    >
+                      <X className="w-6 h-6" />
+                    </motion.button>
+                  </div>
+
+                  {/* Nav Items */}
+                  <div className="space-y-6">
+                    {navItems.map((item) => (
+                      <motion.a
+                        key={item.name}
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        className="block py-3 text-xl text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium border-b border-gray-200 dark:border-gray-800"
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {item.name}
+                      </motion.a>
+                    ))}
+                  </div>
+
+                  {/* Logo/Name in Drawer */}
+                  <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
+                    <p className="text-2xl font-bold gradient-text">Eby Mathew</p>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </motion.nav>
   );
 }

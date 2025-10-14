@@ -42,7 +42,7 @@ export default function Experience() {
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-lg border-l-4 border-purple-600"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border-l-4 border-purple-600"
                 >
                   <h4 className="font-bold text-gray-800 dark:text-white mb-2">
                     {bootcamp.name}
@@ -74,7 +74,7 @@ export default function Experience() {
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 rounded-lg shadow-lg card-hover"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover border border-gray-200 dark:border-gray-700"
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-yellow-100 dark:bg-yellow-900 rounded-lg">
@@ -121,7 +121,7 @@ export default function Experience() {
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                   transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-lg"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
                 >
                   <h4 className="font-bold text-gray-800 dark:text-white mb-2">
                     {responsibility.title}
@@ -152,7 +152,7 @@ export default function Experience() {
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 rounded-lg shadow-lg card-hover"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover border border-gray-200 dark:border-gray-700"
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
