@@ -202,3 +202,9 @@ nav [class*="fixed"] {
     display: flex;
   }
 }
+
+/* Ensure mobile menu button is always visible */
+.mobile-menu-button {
+  z-index: 101 !important;
+  position: relative !important;
+}
