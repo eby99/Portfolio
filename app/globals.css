@@ -191,3 +191,14 @@ nav {
 nav [class*="fixed"] {
   z-index: 9999 !important;
 }
+
+/* Fix for mobile menu button positioning */
+.md\:hidden {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: flex;
+  }
+}

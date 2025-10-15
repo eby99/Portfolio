@@ -23,7 +23,7 @@ export default function Navbar() {
     setMounted(true);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -95,7 +95,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center -mr-2">
+          <div className="md:hidden flex items-center">
             <motion.button
               onClick={() => setIsMobileMenuOpen(true)}
               className="p-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
