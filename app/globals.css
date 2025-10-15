@@ -184,7 +184,7 @@ main {
 /* Ensure navbar and mobile menu are always on top */
 nav {
   position: fixed !important;
-  z-index: 50 !important;
+  z-index: 100 !important;
 }
 
 /* Mobile menu must be above everything else */

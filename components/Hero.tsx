@@ -94,7 +94,7 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-0"
       >
         {/* Profile Image with User Icon */}
         <motion.div
@@ -161,7 +161,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-wrap justify-center gap-4 mb-12 relative z-10"
+          className="flex flex-wrap justify-center gap-4 mb-12 relative z-0"
           transition={{ delay: 0.6 }}
         >
           <motion.button
@@ -192,32 +192,30 @@ export default function Hero() {
         {/* Social Links */}
         <motion.div
           variants={itemVariants}
-          className="flex justify-center gap-6 relative z-10"
+          className="flex justify-center gap-6 relative z-0"
           transition={{ delay: 0.7 }}
         >
           <motion.a
             href={personalInfo.github}
             target="_blank"
-            rel="noopener noreferrer"
             whileHover={{
               scale: 1.2,
               y: -5
             }}
-            className="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-purple-600 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
-            aria-label="GitHub Profile"
+            className="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-all duration-300 shadow-md cursor-pointer"
+            aria-label="GitHub"
           >
             <Github className="w-6 h-6" />
           </motion.a>
           <motion.a
             href={personalInfo.linkedin}
             target="_blank"
-            rel="noopener noreferrer"
             whileHover={{
               scale: 1.2,
               y: -5
             }}
             className="p-3 bg-gray-200 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
-            aria-label="LinkedIn Profile"
+            aria-label="LinkedIn"
           >
             <Linkedin className="w-6 h-6" />
           </motion.a>
@@ -264,30 +262,6 @@ export default function Hero() {
           </motion.button>
         </motion.div>
       </motion.div>
-
-      <style jsx>{`
-        @keyframes blob {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-        .animate-pulse {
-          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-        .animation-delay-6000 {
-          animation-delay: 6s;
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.5; }
-        }
-      `}</style>
     </section>
   );
 }
