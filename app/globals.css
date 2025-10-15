@@ -24,6 +24,7 @@
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
+    overflow-y: scroll; /* Force scrollbar to always be visible to prevent layout shift */
   }
 
   /* Prevent body from creating stacking context */
