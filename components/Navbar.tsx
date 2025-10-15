@@ -65,7 +65,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.a
@@ -96,14 +96,13 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <motion.button
+            <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="p-2 mr-3 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors z-[101]"
-              whileTap={{ scale: 0.95 }}
+              className="p-2 mr-3 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 active:scale-95 z-[101]"
               aria-label="Open menu"
             >
               <Menu className="w-6 h-6" />
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
