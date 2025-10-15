@@ -98,7 +98,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="p-2 mr-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
               whileTap={{ scale: 0.95 }}
               aria-label="Open menu"
             >
