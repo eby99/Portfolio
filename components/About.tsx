@@ -2,14 +2,22 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { personalInfo, education } from '@/lib/data';
 import { GraduationCap, MapPin } from 'lucide-react';
-import ConditionalTypewriter from './ConditionalTypewriter';
+import TypewriterText from './TypewriterText';
+import { isAfterJoiningDate } from '@/lib/timeUtils';
 
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [aboutBio, setAboutBio] = useState(personalInfo.aboutBioBeforeJoining);
+
+  useEffect(() => {
+    if (isAfterJoiningDate()) {
+      setAboutBio(personalInfo.aboutBioAfterJoining);
+    }
+  }, []);
 
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900/10 dark:to-pink-900/10" ref={ref}>
@@ -58,7 +66,7 @@ export default function About() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.4 }}
               >
-                <ConditionalTypewriter text="Who I Am" delay={0} speed={50} as="span" />
+                <TypewriterText text="Who I Am" delay={0} speed={50} as="span" />
               </motion.h3>
               <motion.p
                 className="text-gray-600 dark:text-gray-400 leading-relaxed text-justify"
@@ -66,7 +74,7 @@ export default function About() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.5 }}
               >
-                <ConditionalTypewriter text={personalInfo.aboutBio} delay={400} speed={15} as="span" />
+                <TypewriterText text={aboutBio} delay={400} speed={15} as="span" />
               </motion.p>
               <motion.div 
                 className="flex items-center gap-2 text-gray-600 dark:text-gray-400"

@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Eby Mathew",
-  title: "Full Stack Developer",
+  title: "Full Stack Developer", // Default title (for backward compatibility)
   email: "ebymathewoffical@outlook.com",
   phone: "7012393749 / 8086990142",
   location: "Kerala, India",
@@ -8,6 +8,13 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/eby-mathew-838a02313",
   bio: "A highly motivated and detail-oriented Full Stack Developer with a strong foundation in software development and hands-on experience building scalable web and mobile applications. Proficient in the MERN stack, Python, Java, PHP, Flutter, ASP.NET, and modern web technologies with expertise in both frontend and backend development. Passionate about leveraging AI/ML technologies to create intelligent solutions and cross-platform mobile applications that deliver exceptional user experiences.",
   aboutBio: "I am a passionate Full Stack Developer dedicated to crafting innovative digital solutions that make a difference. With a solid academic foundation in Computer Applications and extensive hands-on experience, I specialize in building end-to-end applications from concept to deployment. My journey in software development has equipped me with the ability to seamlessly navigate between frontend elegance and backend robustness, while maintaining a keen focus on code quality, scalability, and user experience. I thrive in collaborative environments and am constantly exploring emerging technologies to stay at the forefront of the ever-evolving tech landscape.",
+  // Time-based values
+  titleBeforeJoining: "Full Stack Developer",
+  titleAfterJoining: "Software Engineer at ClaSys Technologies",
+  bioBeforeJoining: "A highly motivated and detail-oriented Full Stack Developer with a strong foundation in software development and hands-on experience building scalable web and mobile applications. Proficient in the MERN stack, Python, Java, PHP, Flutter, ASP.NET, and modern web technologies with expertise in both frontend and backend development. Passionate about leveraging AI/ML technologies to create intelligent solutions and cross-platform mobile applications that deliver exceptional user experiences.",
+  bioAfterJoining: "A highly motivated and detail-oriented Software Engineer currently working at ClaSys Technologies, with a strong foundation in software development and hands-on experience building scalable web and mobile applications. Proficient in the MERN stack, Python, Java, PHP, Flutter, ASP.NET, and modern web technologies with expertise in both frontend and backend development. Passionate about leveraging AI/ML technologies to create intelligent solutions and cross-platform mobile applications that deliver exceptional user experiences.",
+  aboutBioBeforeJoining: "I am a passionate Full Stack Developer dedicated to crafting innovative digital solutions that make a difference. With a solid academic foundation in Computer Applications and extensive hands-on experience, I specialize in building end-to-end applications from concept to deployment. My journey in software development has equipped me with the ability to seamlessly navigate between frontend elegance and backend robustness, while maintaining a keen focus on code quality, scalability, and user experience. I thrive in collaborative environments and am constantly exploring emerging technologies to stay at the forefront of the ever-evolving tech landscape.",
+  aboutBioAfterJoining: "I am a passionate Software Engineer at ClaSys Technologies, dedicated to crafting innovative digital solutions that make a difference. With a solid academic foundation in Computer Applications and extensive hands-on experience, I specialize in building end-to-end applications from concept to deployment. My journey in software development has equipped me with the ability to seamlessly navigate between frontend elegance and backend robustness, while maintaining a keen focus on code quality, scalability, and user experience. I thrive in collaborative environments and am constantly exploring emerging technologies to stay at the forefront of the ever-evolving tech landscape.",
 };
 
 export const education = [
@@ -87,6 +94,17 @@ export const projects = [
     description: "A comprehensive service management system that brings laptop repair and maintenance services directly to customers' doorsteps. Features include online booking, service tracking, technician assignment, and automated notifications for seamless customer experience.",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
     type: "Web Application",
+  },
+];
+
+export const workExperience = [
+  {
+    company: "ClaSys Technologies",
+    position: "Software Engineer",
+    startDate: "2025-10-20", // October 20, 2025
+    description: "Working as a Software Engineer, contributing to innovative software solutions and developing scalable applications using modern technologies.",
+    type: "Full-time",
+    location: "Kerala, India",
   },
 ];
 

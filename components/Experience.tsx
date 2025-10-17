@@ -1,13 +1,40 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { bootcamps, achievements, responsibilities, industrialVisits } from '@/lib/data';
-import { BookOpen, Trophy, Briefcase, Building } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { workExperience, bootcamps, achievements, responsibilities, industrialVisits } from '@/lib/data';
+import { BookOpen, Trophy, Briefcase, Building, Calendar } from 'lucide-react';
+import { isAfterJoiningDate, getDaysSinceJoining } from '@/lib/timeUtils';
 
 export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [showWorkExperience, setShowWorkExperience] = useState(false);
+  const [daysSince, setDaysSince] = useState(0);
+
+  useEffect(() => {
+    setShowWorkExperience(isAfterJoiningDate());
+    if (isAfterJoiningDate()) {
+      setDaysSince(getDaysSinceJoining());
+    }
+  }, []);
+
+  const formatDuration = (startDate: string) => {
+    const start = new Date(startDate);
+    const days = getDaysSinceJoining();
+
+    if (days === 0) return "Starting Soon";
+    if (days === 1) return "Day 1";
+    if (days < 30) return `${days} days`;
+    if (days < 365) {
+      const months = Math.floor(days / 30);
+      return months === 1 ? "1 month" : `${months} months`;
+    }
+    const years = Math.floor(days / 365);
+    const remainingMonths = Math.floor((days % 365) / 30);
+    if (remainingMonths === 0) return years === 1 ? "1 year" : `${years} years`;
+    return `${years} ${years === 1 ? 'year' : 'years'} ${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}`;
+  };
 
   return (
     <section id="experience" className="py-20 bg-white dark:bg-gray-800" ref={ref}>
@@ -22,6 +49,64 @@ export default function Experience() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Experience & Achievements</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto"></div>
           </div>
+
+          {/* Work Experience - Only shows after October 20, 2025 */}
+          {showWorkExperience && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-16"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8 flex items-center gap-3">
+                <Briefcase className="w-7 h-7 text-green-600" />
+                Work Experience
+              </h3>
+              <div className="grid md:grid-cols-1 gap-6">
+                {workExperience.map((work, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-8 rounded-xl shadow-xl border-2 border-green-500 dark:border-green-600 card-hover"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="p-4 bg-green-100 dark:bg-green-900 rounded-lg">
+                        <Briefcase className="w-8 h-8 text-green-600 dark:text-green-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                          {work.position}
+                        </h4>
+                        <p className="text-xl text-green-600 dark:text-green-400 font-semibold mb-3">
+                          {work.company}
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                          {work.description}
+                        </p>
+                        <div className="flex flex-wrap gap-4 text-sm">
+                          <div className="flex items-center gap-2">
+                            <Calendar className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                            <span className="text-purple-600 dark:text-purple-400 font-semibold">
+                              {formatDuration(work.startDate)}
+                            </span>
+                          </div>
+                          <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-xs font-semibold">
+                            {work.type}
+                          </span>
+                          <span className="text-gray-600 dark:text-gray-400">
+                            📍 {work.location}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           {/* Bootcamps */}
           <motion.div
