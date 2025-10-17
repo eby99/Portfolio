@@ -7,10 +7,12 @@ import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import AnnouncementBanner from '@/components/AnnouncementBanner';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <AnnouncementBanner />
       <Navbar />
       <Hero />
       <About />

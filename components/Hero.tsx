@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Phone, Download, ChevronDown, User } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
+import ConditionalTypewriter from './ConditionalTypewriter';
 
 export default function Hero() {
   const containerVariants = {
@@ -128,7 +129,7 @@ export default function Hero() {
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-4"
           transition={{ delay: 0.2 }}
         >
-          Hello, I&apos;m
+          <ConditionalTypewriter text="Hello, I'm" delay={0} speed={50} />
         </motion.p>
 
         {/* Name */}
@@ -137,7 +138,7 @@ export default function Hero() {
           className="text-5xl md:text-7xl font-bold mb-6 gradient-text"
           transition={{ delay: 0.3 }}
         >
-          {personalInfo.name}
+          <ConditionalTypewriter text={personalInfo.name} delay={200} speed={80} as="span" />
         </motion.h1>
 
         {/* Title */}
@@ -146,7 +147,7 @@ export default function Hero() {
           className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-8"
           transition={{ delay: 0.4 }}
         >
-          {personalInfo.title}
+          <ConditionalTypewriter text={personalInfo.title} delay={1000} speed={60} as="span" />
         </motion.h2>
 
         {/* Bio */}
@@ -155,7 +156,7 @@ export default function Hero() {
           className="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400 mb-12 leading-relaxed text-justify"
           transition={{ delay: 0.5 }}
         >
-          {personalInfo.bio}
+          <ConditionalTypewriter text={personalInfo.bio} delay={1800} speed={20} as="span" />
         </motion.p>
 
         {/* CTA Buttons */}

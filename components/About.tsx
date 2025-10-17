@@ -5,6 +5,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { personalInfo, education } from '@/lib/data';
 import { GraduationCap, MapPin } from 'lucide-react';
+import ConditionalTypewriter from './ConditionalTypewriter';
 
 export default function About() {
   const ref = useRef(null);
@@ -51,13 +52,13 @@ export default function About() {
               className="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 perspective-container"
               style={{ transformStyle: 'preserve-3d' }}
             >
-              <motion.h3 
+              <motion.h3
                 className="text-2xl font-bold text-gray-800 dark:text-white mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.4 }}
               >
-                Who I Am
+                <ConditionalTypewriter text="Who I Am" delay={0} speed={50} as="span" />
               </motion.h3>
               <motion.p
                 className="text-gray-600 dark:text-gray-400 leading-relaxed text-justify"
@@ -65,7 +66,7 @@ export default function About() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.5 }}
               >
-                {personalInfo.aboutBio}
+                <ConditionalTypewriter text={personalInfo.aboutBio} delay={400} speed={15} as="span" />
               </motion.p>
               <motion.div 
                 className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
