@@ -14,7 +14,7 @@ export function isAfterJoiningDate(): boolean {
 }
 
 /**
- * Calculates the number of days since joining ClaSys Technologies
+ * Calculates the number of days since joining ClaySys Technologies
  * Returns 0 if the joining date hasn't been reached yet
  */
 export function getDaysSinceJoining(): number {
@@ -31,7 +31,7 @@ export function getDaysSinceJoining(): number {
 }
 
 /**
- * Returns a formatted message about days at ClaSys Technologies
+ * Returns a formatted message about days at ClaySys Technologies
  */
 export function getJoiningDaysMessage(): string {
   const days = getDaysSinceJoining();
@@ -41,8 +41,8 @@ export function getJoiningDaysMessage(): string {
   }
 
   if (days === 1) {
-    return 'Day 1 at ClaSys Technologies';
+    return 'Day 1 at ClaySys Technologies';
   }
 
-  return `${days} days at ClaSys Technologies`;
+  return `${days} days at ClaySys Technologies`;
 }

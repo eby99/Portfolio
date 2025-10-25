@@ -9,7 +9,7 @@ import TypewriterText from './TypewriterText';
 /**
  * AnnouncementBanner Component
  *
- * Displays a prominent banner announcing joining ClaSys Technologies
+ * Displays a prominent banner announcing joining ClaySys Technologies
  * Only visible on or after October 20, 2025
  * Shows the number of days at the organization
  */
@@ -47,11 +47,11 @@ export default function AnnouncementBanner() {
 
   const getMessage = () => {
     if (daysSince === 0) {
-      return "Starting my journey as a Software Engineer at ClaSys Technologies!";
+      return "Starting my journey as a Software Engineer at ClaySys Technologies!";
     } else if (daysSince === 1) {
-      return "Day 1 as a Software Engineer at ClaSys Technologies!";
+      return "Day 1 as a Software Engineer at ClaySys Technologies!";
     } else {
-      return `${daysSince} days as a Software Engineer at ClaSys Technologies`;
+      return `${daysSince} days as a Software Engineer at ClaySys Technologies`;
     }
   };
 
