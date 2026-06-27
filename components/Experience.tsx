@@ -4,24 +4,18 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { workExperience, bootcamps, achievements, responsibilities, industrialVisits } from '@/lib/data';
 import { BookOpen, Trophy, Briefcase, Building, Calendar } from 'lucide-react';
-import { isAfterJoiningDate, getDaysSinceJoining } from '@/lib/timeUtils';
+import { getDaysSince, isAfterJoiningDate } from '@/lib/timeUtils';
 
 export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [showWorkExperience, setShowWorkExperience] = useState(false);
-  const [daysSince, setDaysSince] = useState(0);
-
   useEffect(() => {
     setShowWorkExperience(isAfterJoiningDate());
-    if (isAfterJoiningDate()) {
-      setDaysSince(getDaysSinceJoining());
-    }
   }, []);
 
   const formatDuration = (startDate: string) => {
-    const start = new Date(startDate);
-    const days = getDaysSinceJoining();
+    const days = getDaysSince(startDate);
 
     if (days === 0) return "Starting Soon";
     if (days === 1) return "Day 1";

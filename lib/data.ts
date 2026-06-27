@@ -100,20 +100,20 @@ export const projects = [
 
 export const workExperience = [
   {
-    company: "ClaySys Technologies",
-    position: "Software Engineer",
-    startDate: "2025-10-20", // October 20, 2025
-    description:
-      "Working as a Software Engineer, contributing to innovative software solutions and developing scalable applications using modern technologies. Resigned on 24 April 2026.",
-    type: "Full-time",
-    location: "Kerala, India",
-  },
-  {
     company: "Tata Consultancy Services (TCS)",
     position: "Assistant System Engineer",
     startDate: "2026-06-04", // 4 June 2026
     description:
       "Working as an Assistant System Engineer, contributing to reliable system operations and developing scalable solutions using modern technologies.",
+    type: "Full-time",
+    location: "Kerala, India",
+  },
+  {
+    company: "ClaySys Technologies",
+    position: "Software Engineer",
+    startDate: "2025-10-20", // October 20, 2025
+    description:
+      "Working as a Software Engineer, contributing to innovative software solutions and developing scalable applications using modern technologies. Resigned on 24 April 2026.",
     type: "Full-time",
     location: "Kerala, India",
   },
